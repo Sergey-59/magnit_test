@@ -50,7 +50,6 @@ services:
         max-file: "3"
   celery:
     build: .
-#    command: sh -c "celery -A app.tasks beat -l info && celery -A app.tasks worker -l info --pool=prefork"
     command: celery -A app.tasks worker -l info -B
     volumes:
       - .:/code
